@@ -1,5 +1,13 @@
 export const _ROUTES = [
     {
+        path: '/:pathMatch(.*)*',
+        component: () => import('../views/home/Home.vue'),
+        name: 'NotFound',
+        meta: {
+            layout: 'default'
+        }
+    },
+    {
         path: '/',
         component: () => import('../views/home/Home.vue'),
         name: 'Home',
