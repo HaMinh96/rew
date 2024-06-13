@@ -21,6 +21,9 @@ export default defineConfig({
       ]
     })
   ],
+  build: {
+    outDir: './doc'
+  },
   commonjsOptions: {
     esmExternals: true
   },

@@ -1,4 +1,4 @@
-import{a as p}from"./overlayeventbus-DAVWH2lA.js";import{C as u,k as r,l as i,H as o,B as c,J as l,m as s}from"./index-B6X-uQwD.js";var m=function(e){var t=e.dt;return`
+import{a as p}from"./overlayeventbus-C8H1AAl1.js";import{C as u,k as r,l as i,H as o,B as c,J as l,m as s}from"./index-GFjOUyDf.js";var m=function(e){var t=e.dt;return`
 .p-card {
     background: `.concat(t("card.background"),`;
     color: `).concat(t("card.color"),`;
