@@ -16,7 +16,7 @@
                         <InputText class="w-100" v-model="dataModel.username" />
                     </div>
                     <div class="mt-2">
-                        <label>Username:</label>
+                        <label>Password:</label>
                         <Password class="w-100" inputClass="w-100" :feedback="false" v-model="dataModel.password"
                             toggleMask />
                     </div>
