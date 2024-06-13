@@ -1,0 +1,1 @@
+.sidebar .p-menu{min-width:unset}.sidebar .p-menu-item-content:has(>.router-link-active){color:var(--p-menu-item-focus-color);background:var(--p-menu-item-focus-background);font-weight:600}.sidebar .p-menu-end{margin-top:auto}.sidebar .logo{text-decoration:none;color:var(--high-contrast-text-color)}.sidebar .logo span{font-size:.75vw;bottom:-10px;right:0}
