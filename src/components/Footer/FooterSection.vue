@@ -51,6 +51,9 @@
                             <li>
                                 <a class="footer-link" href="#faq">FAQs</a>
                             </li>
+                            <li>
+                                <router-link class="footer-link" :to="{name: 'AdminBio'}">Admin</router-link>
+                            </li>
                         </ul>
                     </div>
                     <div class="col-md-3 col-12 text-center-sm">
