@@ -27,7 +27,6 @@ const logout = () => {
 
     delete axios.defaults.headers.common['Authorization']
     sessionStorage.removeItem('accessToken')
-    window.location = ('/')
     setIsLoggedIn(false)
 }
 

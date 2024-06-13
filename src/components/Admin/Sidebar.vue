@@ -17,7 +17,7 @@
             <template #end>
                 <div class="m-1">
                     <Button class="w-100" label="Logout" severity="secondary" icon="pi pi-sign-out" outlined
-                        @click="logout" />
+                        @click="handleLogout" />
                 </div>
             </template>
         </Menu>
@@ -27,12 +27,20 @@
 <script setup>
 import { ref } from 'vue'
 import { useAuth } from '../../services/useAuth'
+import { useRouter } from 'vue-router';
 
 const { logout } = useAuth()
+
+const router = useRouter()
 
 const items = ref([
     { label: 'Bio', icon: 'pi pi-users', route: 'AdminBio' }
 ])
+
+const handleLogout = () => {
+    logout()
+    router.push({ name: 'Home' })
+}
 </script>
 
 <style lang="scss">
