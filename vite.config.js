@@ -22,7 +22,7 @@ export default defineConfig({
     })
   ],
   build: {
-    outDir: './doc'
+    outDir: './docs'
   },
   commonjsOptions: {
     esmExternals: true
