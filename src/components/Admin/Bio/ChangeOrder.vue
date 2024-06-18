@@ -25,7 +25,7 @@
 </template>
 
 <script setup>
-import { useBio } from '../../services/useBio'
+import { useBio } from '../../../services/useBio'
 import { ref } from 'vue'
 import { useConfirm } from 'primevue/useconfirm'
 

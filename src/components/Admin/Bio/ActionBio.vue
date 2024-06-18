@@ -52,8 +52,8 @@ import Links from './Links.vue'
 
 import { ref, reactive, watch, computed } from 'vue'
 import { useConfirm } from 'primevue/useconfirm'
-import { useBio } from '../../services/useBio'
-import { useUpload } from '../../services/useUpload'
+import { useBio } from '../../../services/useBio'
+import { useUpload } from '../../../services/useUpload'
 
 const baseUrl = import.meta.env.VITE_URL_API
 

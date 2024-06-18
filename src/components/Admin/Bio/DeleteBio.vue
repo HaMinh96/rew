@@ -4,8 +4,8 @@
 
 <script setup>
 import { useConfirm } from 'primevue/useconfirm'
-import { useBio } from '../../services/useBio'
-import { useLoadingStore } from '../../store/loading';
+import { useBio } from '../../../services/useBio'
+import { useLoadingStore } from '../../../store/loading';
 
 const { getBio, deleteBio } = useBio()
 

@@ -6,21 +6,21 @@
 
 <script setup>
 import AOS from 'aos'
+
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
-AOS.init({ mirror: false, once: true });
+AOS.init({ mirror: false, once: true })
 
 const route = useRoute();
 
-const layout = computed(() => `${route?.meta?.layout}-layout` ?? 'div');
+const layout = computed(() => `${route?.meta?.layout}-layout` ?? 'div')
 </script>
 
 <style>
 @font-face {
   font-family: 'Ondo Medium';
-  src: local('Ondo Medium'),
-    url('./assets/fonts/OndoMedium.otf') format('truetype');
+  src: local('Ondo Medium'), url('./assets/fonts/OndoMedium.otf') format('truetype');
 }
 
 .rew-font {

@@ -5,15 +5,15 @@ import { toast } from 'vue3-toastify'
 const BASE_API_URL = import.meta.env.VITE_URL_API
 
 export const goToHomeLink = (link, route, router, setActive) => {
-    if (route.name !== "Home") {
-        router.push({ path: "/" });
+    if (route.name !== 'Home') {
+        router.push({ path: '/' })
         setTimeout(() => {
-            document.getElementById(link).scrollIntoView({ block: "start" });
+            document.getElementById(link).scrollIntoView({ block: 'start' })
             setActive(link)
-        }, 200);
-        return;
+        }, 200)
+        return
     }
-    document.getElementById(link).scrollIntoView({ block: "start" });
+    document.getElementById(link).scrollIntoView({ block: 'start' })
     setActive(link)
 }
 

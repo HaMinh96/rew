@@ -38,9 +38,7 @@ const calculateNewScale = () => {
     el.setAttribute("style", `-moz-transform: scale(${percentage}); -webkit-transform: scale(${percentage}); transform: scale(${percentage});`)
 }
 
-window.addEventListener('resize', () => {
-    calculateNewScale()
-})
+window.addEventListener('resize', calculateNewScale)
 
 const blockItems = ref([
     {
@@ -65,7 +63,5 @@ const blockItems = ref([
     }
 ])
 
-onMounted(() => {
-    calculateNewScale();
-})
+onMounted(calculateNewScale)
 </script>

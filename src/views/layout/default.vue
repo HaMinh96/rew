@@ -17,6 +17,12 @@ import HeaderSection from '../../components/Header/HeaderSection.vue'
 import FooterSection from '../../components/Footer/FooterSection.vue'
 import ContactModal from '../../components/Inc/ContactModal.vue'
 import MobileMenu from '../../components/Inc/MobileMenu.vue'
+
+import { useBio } from '../../services/useBio'
+
+const { getBio } = useBio()
+
+getBio()
 </script>
 
 <style scoped>

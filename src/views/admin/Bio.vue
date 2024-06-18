@@ -1,13 +1,12 @@
 <template>
-
     <div class="m-2 px-3 position-relative" style="min-height: 90%">
         <div v-if="!public" class="text-start mb-2">
             <ActionBio type="add" />
             <ChangeOrder v-if="bios.length > 1" />
         </div>
         <Transition>
-            <div v-show="!store.loading" class="row gx-5 ">
-                <div class="col-lg-4 col-md-6 " v-for="bio in bios" :key="bio.id">
+            <div v-show="!store.loading" class="row g-5">
+                <div class="col-lg-4 col-md-6" v-for="bio in bios" :key="bio.id" data-aos="zoom-in-down" data-aos-offset="50">
                     <Card :class="public ? 'card-clickable bio-card' : 'card-hover bio-card'"
                         style="width: 100%; height: 100%; overflow: hidden; position: relative"
                         @click="handleViewBio(bio.id)">
@@ -55,15 +54,14 @@
 </template>
 
 <script setup>
-import ActionBio from '../../components/Admin/ActionBio.vue'
-import ChangeOrder from '../../components/Admin/ChangeOrder.vue'
-import DeleteBio from '../../components/Admin/DeleteBio.vue'
-import ViewBio from '../../components/Admin/ViewBio.vue'
+import ActionBio from '../../components/Admin/Bio/ActionBio.vue'
+import ChangeOrder from '../../components/Admin/Bio/ChangeOrder.vue'
+import DeleteBio from '../../components/Admin/Bio/DeleteBio.vue'
+import ViewBio from '../../components/Admin/Bio/ViewBio.vue'
 
 import { useBio } from '../../services/useBio'
 import { useLoadingStore } from '../../store/loading'
 import { formatDate } from '../../utils'
-import { ref } from 'vue'
 
 const { bios, getBio } = useBio()
 
@@ -81,8 +79,10 @@ const handleViewBio = id => {
     bio.visible = true
 }
 
-bios.value = []
-getBio()
+if (!props.public) {
+    bios.value = []
+    getBio()
+}
 </script>
 
 <style lang="scss">

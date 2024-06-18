@@ -1,8 +1,8 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import { _ROUTES } from './routes'
 
 const router = createRouter({
-    history: createWebHistory('/rew/'),
+    history: createWebHashHistory(import.meta.env.MODE === 'staging' ? 'rew' : ''),
     routes: _ROUTES,
     scrollBehavior() {
         return { top: 0 }
