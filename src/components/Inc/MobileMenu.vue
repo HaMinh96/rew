@@ -19,11 +19,15 @@
                         :class="{ active: isActive(link.href) }">
                         {{ link.label }}
                     </span>
-                    <a class="menu-link" @click="closeMenu(null, false)" :href="PODCAST_LINK"
-                        target="_blank">Podcast</a>
                     <router-link class="menu-link" :to="{ name: 'OurTeam' }" @click="closeMenu(null, false)">
                         Our Team
                     </router-link>
+                    <a class="menu-link" @click="closeMenu(null, false)" :href="RESOURCE_LINK" target="_blank">
+                        ReSource
+                    </a>
+                    <a class="menu-link" @click="closeMenu(null, false)" :href="PODCAST_LINK" target="_blank">
+                        Podcast
+                    </a>
                 </div>
                 <div class="menu-btm">
                     <div class="d-flex align-items-center justify-content-center mb-3 mx-5" style="overflow: hidden">
@@ -50,18 +54,17 @@ import { Offcanvas } from 'bootstrap'
 import { goToHomeLink } from '../../utils'
 import { useRoute, useRouter } from 'vue-router'
 import { _ROUTES } from '../../router/routes'
-import { SHOW_MORE, PODCAST_LINK } from '../../constants'
+import { PODCAST_LINK, RESOURCE_LINK } from '../../constants'
 
 const route = useRoute()
 const router = useRouter()
-
-const showMore = ref(SHOW_MORE)
 
 let bsOffcanvas
 const closeMenu = (link, goToHome = true) => {
     bsOffcanvas.hide()
     if (goToHome) goToHomeLink(link, route, router, setActive)
 }
+
 const links = ref([
     {
         label: 'home',
@@ -74,20 +77,13 @@ const links = ref([
     {
         label: 'services',
         href: 'service',
-    },
-    {
-        label: 'FAQs',
-        href: 'faq'
     }
 ])
+
 const targets = computed(() => links.value.map(({ href }) => href))
 const { isActive, setActive } = useActive(targets, {
     boundaryOffset: { toTop: 200, toBottom: 500 }
 })
-
-const routerLinks = computed(() => _ROUTES.filter(x => x.name !== 'Home'))
-
-const isMenuExpanded = ref(false)
 
 onMounted(() => {
     bsOffcanvas = new Offcanvas('#offcanvasRight')

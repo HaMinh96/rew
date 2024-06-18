@@ -750,6 +750,17 @@ a.footer-link:hover {
   display: -webkit-box;
   -webkit-box-orient: vertical;
 
+  &-1 {
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+  }
+
+  &-2 {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    text-decoration: dashed;
+  }
+
   &-3 {
     -webkit-line-clamp: 3;
     line-clamp: 3;
@@ -782,5 +793,22 @@ a.footer-link:hover {
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+.ql-editor {
+  a {
+    color: var(--rew-primary-green);
+    transition: all linear .1s;
+
+    &:hover {
+      color: var(--rew-active-brown)
+    }
+  }
+}
+
+.p-card-subtitle {
+  a {
+    color: var(--rew-primary-green);
   }
 }

@@ -21,7 +21,7 @@
                         <template #title>{{ bio.name }}</template>
                         <template #subtitle>
                             <template v-if="public">
-                                <div class="max-line max-line-3 fs-7" v-html="bio.content"></div>
+                                <div class="max-line max-line-2 fs-7" v-html="bio.content"></div>
                             </template>
                             <template v-else>
                                 <div class="fs-7">

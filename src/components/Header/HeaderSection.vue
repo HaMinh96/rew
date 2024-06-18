@@ -12,16 +12,19 @@
                 <div class="justify-content-end d-md-block d-none" id="rewHeader">
                     <div class="navbar-nav">
                         <a v-for="link in links" @click.prevent="goToHomeLink(link.href, route, router, setActive)"
-                            :key="link.href" :href="`#${link.href}`" class="nav-link ms-sm-0 ms-md-5"
+                            :key="link.href" :href="`#${link.href}`" class="nav-link ms-sm-0 ms-md-4 ms-lg-5"
                             :class="{ active: isActive(link.href) }">
                             {{ link.label }}
                         </a>
-                        <a class="nav-link ms-sm-0 ms-md-5" :href="PODCAST_LINK" target="_blank">
-                            Podcast
-                        </a>
-                        <router-link class="nav-link ms-sm-0 ms-md-5 nowrap" :to="{ name: 'OurTeam' }">
+                        <router-link class="nav-link ms-sm-0 ms-md-4 ms-lg-5 nowrap" :to="{ name: 'OurTeam' }">
                             Our Team
                         </router-link>
+                        <a class="nav-link ms-sm-0 ms-md-4 ms-lg-5" :href="RESOURCE_LINK" target="_blank">
+                            ReSource
+                        </a>
+                        <a class="nav-link ms-sm-0 ms-md-4 ms-lg-5" :href="PODCAST_LINK" target="_blank">
+                            Podcast
+                        </a>
                     </div>
                 </div>
             </div>
@@ -31,7 +34,7 @@
 
 <script setup>
 import { _ROUTES } from '../../router/routes'
-import { PODCAST_LINK } from '../../constants'
+import { PODCAST_LINK, RESOURCE_LINK } from '../../constants'
 import { ref, computed } from 'vue'
 import { useActive } from 'vue-use-active-scroll'
 import { goToHomeLink } from '../../utils'
@@ -52,18 +55,12 @@ const links = ref([
     {
         label: 'services',
         href: 'service',
-    },
-    {
-        label: 'FAQs',
-        href: 'faq'
     }
 ])
 const targets = computed(() => links.value.map(({ href }) => href))
 const { isActive, setActive } = useActive(targets, {
     boundaryOffset: { toTop: 200, toBottom: 300 }
 })
-
-const routerLinks = computed(() => _ROUTES.filter(x => x.name !== 'Home'))
 
 </script>
 
@@ -72,26 +69,6 @@ header {
     background: rgba(240, 243, 239, 0.6);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
-}
-
-.dropdown-menu {
-    background: var(--rew-baby-grey);
-    text-align: right;
-    border: none;
-    min-width: 208px;
-    transform: scale(.8);
-    transform-origin: top right;
-    margin-top: 6px;
-
-    .nav-link {
-        transform-origin: right;
-    }
-}
-
-.show-more:hover {
-    & .dropdown-menu {
-        display: block !important;
-    }
 }
 
 .nav-link:has(.router-link-active) {
