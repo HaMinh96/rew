@@ -51,7 +51,7 @@
                             <li>
                                 <a class="footer-link" href="#faq">FAQs</a>
                             </li>
-                            <li>
+                            <li v-if="currentMode === 'staging'">
                                 <router-link class="footer-link" :to="{name: 'AdminBio'}">Admin</router-link>
                             </li>
                         </ul>
@@ -78,6 +78,10 @@
         </div>
     </footer>
 </template>
+
+<script setup>
+const currentMode = import.meta.env.MODE
+</script>
 
 <style scoped>
 .social-hover {
