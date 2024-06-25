@@ -15,17 +15,19 @@
         <div class="offcanvas-body">
             <div class="d-flex flex-column h-100" style="overflow: hidden">
                 <div class="flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-                    <span v-for="link in links" @click.stop="closeMenu(link.href)" :key="link.href" class="menu-link"
-                        :class="{ active: isActive(link.href) }">
-                        {{ link.label }}
-                    </span>
-                    <router-link class="menu-link" :to="{ name: 'OurTeam' }" @click="closeMenu(null, false)">
+                    <router-link class="menu-link" :to="{ name: 'Home' }" @click="hideCanvas">
+                        Home
+                    </router-link>
+                    <router-link class="menu-link" :to="{ name: 'PowerCampus' }" @click="hideCanvas">
+                        PowerCampus
+                    </router-link>
+                    <router-link class="menu-link" :to="{ name: 'OurTeam' }" @click="hideCanvas">
                         Our Team
                     </router-link>
-                    <a class="menu-link" @click="closeMenu(null, false)" :href="RESOURCE_LINK" target="_blank">
+                    <a class="menu-link" @click="hideCanvas" :href="RESOURCE_LINK" target="_blank">
                         ReSource
                     </a>
-                    <a class="menu-link" @click="closeMenu(null, false)" :href="PODCAST_LINK" target="_blank">
+                    <a class="menu-link" @click="hideCanvas" :href="PODCAST_LINK" target="_blank">
                         Podcast
                     </a>
                 </div>
@@ -48,42 +50,15 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
-import { useActive } from 'vue-use-active-scroll'
+import { onMounted } from 'vue'
 import { Offcanvas } from 'bootstrap'
-import { goToHomeLink } from '../../utils'
-import { useRoute, useRouter } from 'vue-router'
 import { _ROUTES } from '../../router/routes'
 import { PODCAST_LINK, RESOURCE_LINK } from '../../constants'
 
-const route = useRoute()
-const router = useRouter()
-
 let bsOffcanvas
-const closeMenu = (link, goToHome = true) => {
+const hideCanvas = () => {
     bsOffcanvas.hide()
-    if (goToHome) goToHomeLink(link, route, router, setActive)
 }
-
-const links = ref([
-    {
-        label: 'home',
-        href: 'home',
-    },
-    {
-        label: 'about',
-        href: 'about',
-    },
-    {
-        label: 'services',
-        href: 'service',
-    }
-])
-
-const targets = computed(() => links.value.map(({ href }) => href))
-const { isActive, setActive } = useActive(targets, {
-    boundaryOffset: { toTop: 200, toBottom: 500 }
-})
 
 onMounted(() => {
     bsOffcanvas = new Offcanvas('#offcanvasRight')

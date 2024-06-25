@@ -16,7 +16,7 @@
                             </h1>
                             <button class="rew-main-btn rew-box-shadow position-absolute position-sm-relative"
                                 style="bottom: 0; right: -12px" data-bs-toggle="modal" data-bs-target="#contactModal">
-                                <span>Let’s Get Started</span>
+                                <span>{{ content?.button_text }}</span>
                                 <span class="ms-md-3 ms-1">
                                     <svg class="button-arrow" width="34" height="28" viewBox="0 0 34 28" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -33,8 +33,7 @@
                                 <img src="/src/assets/img/hero-img-sm.webp" alt="rew small mainboard" class="img-fluid">
                             </span>
                             <span class="rew-text-brown fs-24 fs-sm-10 ms-lg-4 ms-0 fw-light">
-                                We team up with higher education institutions to cultivate evergreen enrollment systems,
-                                operations, and processes for their Slate CRM instances.
+                                {{ content?.sub_text }}
                             </span>
                         </div>
                         <div data-aos="fade-right" data-aos-duration="700" data-aos-delay="400" data-aos-offset="-500"
@@ -92,7 +91,13 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { RESOURCE_LINK } from '../../constants'
+import { useTextStore } from '../../store/text'
+
+const store = useTextStore()
+
+const content = computed(() => store.content?.home)
 </script>
 
 <style scoped>

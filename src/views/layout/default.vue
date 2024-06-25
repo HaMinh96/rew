@@ -19,10 +19,13 @@ import ContactModal from '../../components/Inc/ContactModal.vue'
 import MobileMenu from '../../components/Inc/MobileMenu.vue'
 
 import { useBio } from '../../services/useBio'
+import { usePowerCampus } from '../../services/usePowerCampus'
 
 const { getBio } = useBio()
+const { getPowerCampusContent } = usePowerCampus()
 
 getBio()
+getPowerCampusContent()
 </script>
 
 <style scoped>

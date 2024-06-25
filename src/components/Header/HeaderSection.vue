@@ -11,11 +11,12 @@
                 </button>
                 <div class="justify-content-end d-md-block d-none" id="rewHeader">
                     <div class="navbar-nav">
-                        <a v-for="link in links" @click.prevent="goToHomeLink(link.href, route, router, setActive)"
-                            :key="link.href" :href="`#${link.href}`" class="nav-link ms-sm-0 ms-md-4 ms-lg-5"
-                            :class="{ active: isActive(link.href) }">
-                            {{ link.label }}
-                        </a>
+                        <router-link class="nav-link ms-sm-0 ms-md-4 ms-lg-5 nowrap" :to="{ name: 'Home' }">
+                            Home
+                        </router-link>
+                        <router-link class="nav-link ms-sm-0 ms-md-4 ms-lg-5 nowrap" :to="{ name: 'PowerCampus' }">
+                            PowerCampus
+                        </router-link>
                         <router-link class="nav-link ms-sm-0 ms-md-4 ms-lg-5 nowrap" :to="{ name: 'OurTeam' }">
                             Our Team
                         </router-link>
@@ -35,33 +36,6 @@
 <script setup>
 import { _ROUTES } from '../../router/routes'
 import { PODCAST_LINK, RESOURCE_LINK } from '../../constants'
-import { ref, computed } from 'vue'
-import { useActive } from 'vue-use-active-scroll'
-import { goToHomeLink } from '../../utils'
-import { useRoute, useRouter } from 'vue-router'
-
-const route = useRoute()
-const router = useRouter()
-
-const links = ref([
-    {
-        label: 'home',
-        href: 'home',
-    },
-    {
-        label: 'about',
-        href: 'about',
-    },
-    {
-        label: 'services',
-        href: 'service',
-    }
-])
-const targets = computed(() => links.value.map(({ href }) => href))
-const { isActive, setActive } = useActive(targets, {
-    boundaryOffset: { toTop: 200, toBottom: 300 }
-})
-
 </script>
 
 <style lang="scss" scoped>

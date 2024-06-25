@@ -1,5 +1,5 @@
 <template>
-    <div class="content-wrapper position-relatve">
+    <div data-aos="zoom-out" class="content-wrapper position-relatve">
         <div>
             <h1 class="text-uppercase text-center px-3">Under construction</h1>
             <p class="text-center">page nearly ready</p>

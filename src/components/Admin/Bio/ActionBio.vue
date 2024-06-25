@@ -54,13 +54,16 @@ import { ref, reactive, watch, computed } from 'vue'
 import { useConfirm } from 'primevue/useconfirm'
 import { useBio } from '../../../services/useBio'
 import { useUpload } from '../../../services/useUpload'
+import { confirmAction } from '../../../utils'
+
+const { getBio, addBio, updateBio } = useBio()
+const { upload } = useUpload()
 
 const baseUrl = import.meta.env.VITE_URL_API
 
 const props = defineProps(['type', 'data'])
 
-const { getBio, addBio, updateBio } = useBio()
-const { upload } = useUpload()
+const confirm = useConfirm()
 
 const visible = ref(false)
 
@@ -76,37 +79,19 @@ const presentations = ref([])
 
 const publications = ref([])
 
-const confirm = useConfirm()
-const confirmAction = ({ message, accept, reject }) => {
-    confirm.require({
-        message,
-        header: 'Confirmation',
-        rejectProps: {
-            label: 'No',
-            severity: 'secondary',
-            size: 'small'
-        },
-        acceptProps: {
-            label: 'Yes',
-            size: 'small'
-        },
-        accept,
-        reject
-    })
-}
 const confirmCancel = () => {
     const obj = {
         message: 'Do you want to cancel?',
         accept: () => { visible.value = false }
     }
-    confirmAction(obj)
+    confirmAction(confirm, obj)
 }
 const confirmSave = () => {
     const obj = {
         message: 'Do you want to save changes?',
         accept: handleActionBio
     }
-    confirmAction(obj)
+    confirmAction(confirm, obj)
 }
 
 const fileInput = ref()
@@ -146,7 +131,7 @@ const confirmRemove = () => {
             dataModel.picture = null
         }
     }
-    confirmAction(obj)
+    confirmAction(confirm, obj)
 }
 
 const loading = ref(false)
@@ -240,23 +225,3 @@ watch(visible, () => {
     publications.value = []
 })
 </script>
-
-<style lang="scss">
-.editor {
-    .p-editor {
-        &-toolbar {
-
-            .ql-list[value="bullet"],
-            .ql-image,
-            .ql-code-block {
-                display: none;
-            }
-
-            .ql-picker-label {
-                display: flex;
-                align-items: center;
-            }
-        }
-    }
-}
-</style>

@@ -28,7 +28,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
+import { useTextStore } from '../../store/text'
+
+const store = useTextStore()
+const content = computed(() => store.content?.about)
 
 const calculateNewScale = () => {
     const el = document.querySelector(".about-content")
@@ -43,23 +47,23 @@ window.addEventListener('resize', calculateNewScale)
 const blockItems = ref([
     {
         class: 'block-1 block-w-arrow',
-        title: 'Putting Down Roots',
-        content: 'Whether serving temporary Slater coverage or as an ongoing Slate Captain, <span class="rew-font">ReW</span>’s sustainable solutions remain the same. Our work stands the test of time.'
+        title: content.value?.block1.title,
+        content: content.value?.block1.content
     },
     {
         class: 'block-2 block-w-arrow',
-        title: 'Slate Support to the Core',
-        content: 'The acreage of <span class="rew-font">ReW</span>’s higher education expertise is vast. However, our mission focuses on providing Slate support tailored for enrollment management systems and operations.'
+        title: content.value?.block2.title,
+        content: content.value?.block2.content
     },
     {
         class: 'block-3 block-w-arrow',
-        title: 'Great Oaks from Little Acorns Grow',
-        content: '<span class="rew-font">ReW</span> is a lean collaborative of Slaters from diverse higher education backgrounds who hold the shared belief that no Slate instance is too small to make a mighty impact.'
+        title: content.value?.block3.title,
+        content: content.value?.block3.content
     },
     {
         class: 'block-4',
-        title: 'Into the SIS Weeds',
-        content: 'Our team has extensive experience administering student information systems. We thrive on challenges to optimize Slate with data integrations and business processes.'
+        title: content.value?.block4.title,
+        content: content.value?.block4.content
     }
 ])
 

@@ -4,19 +4,6 @@ import { toast } from 'vue3-toastify'
 
 const BASE_API_URL = import.meta.env.VITE_URL_API
 
-export const goToHomeLink = (link, route, router, setActive) => {
-    if (route.name !== 'Home') {
-        router.push({ path: '/' })
-        setTimeout(() => {
-            document.getElementById(link).scrollIntoView({ block: 'start' })
-            setActive(link)
-        }, 200)
-        return
-    }
-    document.getElementById(link).scrollIntoView({ block: 'start' })
-    setActive(link)
-}
-
 export const notiToast = str => {
     toast.info(str, {
         icon: false,
@@ -81,5 +68,22 @@ export const formatDate = str => {
     }
 
     return local.toLocaleString('en-US', dateFormat)
+}
 
+export const confirmAction = (confirm, { message, accept, reject }) => {
+    confirm.require({
+        message,
+        header: 'Confirmation',
+        rejectProps: {
+            label: 'No',
+            severity: 'secondary',
+            size: 'small'
+        },
+        acceptProps: {
+            label: 'Yes',
+            size: 'small'
+        },
+        accept,
+        reject
+    })
 }

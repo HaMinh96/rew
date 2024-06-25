@@ -23,7 +23,6 @@
     "swiper": "^9.3.1",
     "vue": "^3.4.27",
     "vue-router": "^4.3.3",
-    "vue-use-active-scroll": "^1.0.0",
     "vue3-toastify": "^0.1.10"
   },
   "devDependencies": {

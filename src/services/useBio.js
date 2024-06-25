@@ -1,5 +1,5 @@
 import { fetchPost, fetchGet } from '../utils/index.js'
-import { notiToast, errorToast } from '../utils/index.js'
+import { notiToast } from '../utils/index.js'
 import { useLoadingStore } from '../store/loading.js'
 import { ref } from 'vue'
 

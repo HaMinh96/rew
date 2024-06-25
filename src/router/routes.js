@@ -39,7 +39,7 @@ export const _ROUTES = [
         name: 'PowerCampus',
         meta: {
             layout: 'default',
-            title: 'Power Campus'
+            title: 'PowerCampus'
         }
     },
     {
@@ -53,6 +53,16 @@ export const _ROUTES = [
                 meta: {
                     layout: 'admin',
                     title: 'Bio Management',
+                    requiresAuth: true
+                }
+            },
+            {
+                path: 'powercampus',
+                component: () => import('../views/admin/PowerCampus.vue'),
+                name: 'AdminPowerCampus',
+                meta: {
+                    layout: 'admin',
+                    title: 'PowerCampus Management',
                     requiresAuth: true
                 }
             },

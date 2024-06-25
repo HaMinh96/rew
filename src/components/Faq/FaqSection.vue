@@ -7,7 +7,8 @@
                 questions
             </h2>
             <h4 class="text-center section-sub-title mb-3 mb-md-5">
-                In a quandary of not knowing what you don’t know about Slate? You’re not alone! Here are some of the questions that we help Slate schools answer:
+                In a quandary of not knowing what you don’t know about Slate? You’re not alone! Here are some of the
+                questions that we help Slate schools answer:
             </h4>
             <div class="faq-content mx-auto">
                 <div data-aos="fade-down" class="accordion accordion-flush" id="rew-faq">
@@ -24,38 +25,37 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useTextStore } from '../../store/text'
+
+const store = useTextStore()
+const content = computed(() => store.content?.faq)
 
 const faqs = ref([
     {
         id: 'faq1',
         btnid: 'faqbtn1',
-        title: 'My staff spends a significant amount of time/effort on completing manual operations processes and serving as human bridges for data integrations. How can we automate?',
-        content: 'Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item'
+        title: content.value?.faq1,
     },
     {
         id: 'faq2',
         btnid: 'faqbtn2',
-        title: 'Our Admission Office is overwhelmed by a Neve<span class="rew-text-green">rE</span>nding Story of internal Slate requests from campus stakeholders. How can we optimize our in-house Slate Support and get ahead?',
-        content: 'Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item'
+        title: content.value?.faq2,
     },
     {
         id: 'faq3',
         btnid: 'faqbtn3',
-        title: 'We are ready to take our Slate systems and operations documentation to the next level. Where do we start?',
-        content: 'Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item'
+        title: content.value?.faq3,
     },
     {
         id: 'faq4',
         btnid: 'faqbtn4',
-        title: 'I watched a webinar where a Slater showcased an awesome portal their school has. How can we build something similar?',
-        content: 'Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item'
+        title: content.value?.faq4,
     },
     {
         id: 'faq5',
         btnid: 'faqbtn5',
-        title: 'We are hiring for a Slate position, but we continue to have failed searches. What more can we do?',
-        content: 'Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item'
+        title: content.value?.faq5,
     }
 ]) 
 </script>
@@ -64,6 +64,7 @@ const faqs = ref([
 .accordion-button {
     font-weight: 400;
 }
+
 .accordion-button::after {
     display: none;
 }

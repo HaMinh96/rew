@@ -3,7 +3,7 @@
         class="sub-footer py-4 text-center text-uppercase">
         <div class="container-fluid">
             <button class="rew-main-btn rew-box-shadow" data-bs-toggle="modal" data-bs-target="#contactModal">
-                <span>Contact Us</span>
+                <span>{{ content?.button_text }}</span>
                 <span class="ms-md-3 ms-1">
                     <svg class="button-arrow" width="34" height="28" viewBox="0 0 34 28" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +52,7 @@
                                 <a class="footer-link" href="#faq">FAQs</a>
                             </li>
                             <li v-if="currentMode === 'staging'">
-                                <router-link class="footer-link" :to="{name: 'AdminBio'}">Admin</router-link>
+                                <router-link class="footer-link" :to="{ name: 'AdminBio' }">Admin</router-link>
                             </li>
                         </ul>
                     </div>
@@ -74,12 +74,18 @@
                     </div>
                 </div>
             </div>
-            <div class="mx-md-0 mx-5 text-end text-white mt-3 copyright">ReWorkflow, LLC. All Rights Reserved ©, 2024.</div>
+            <div class="mx-md-0 mx-5 text-end text-white mt-3 copyright">{{ content?.copyright }}</div>
         </div>
     </footer>
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useTextStore } from '../../store/text'
+
+const store = useTextStore()
+const content = computed(() => store.content?.footer)
+
 const currentMode = import.meta.env.MODE
 </script>
 
@@ -127,4 +133,5 @@ const currentMode = import.meta.env.MODE
 .social-hover.linkedin::before {
     background: #0077B5;
     border-radius: 6px;
-}</style>
+}
+</style>

@@ -812,3 +812,21 @@ a.footer-link:hover {
     color: var(--rew-primary-green);
   }
 }
+
+.editor {
+  .p-editor {
+    &-toolbar {
+
+      .ql-list[value="bullet"],
+      .ql-image,
+      .ql-code-block {
+        display: none;
+      }
+
+      .ql-picker-label {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
