@@ -1,4 +1,4 @@
-import{s as a}from"./index-DNkBjOtq.js";import{B as r,o as p,c as u,v as c}from"./index-CgPJcfsZ.js";var l=function(n){var t=n.dt;return`
+import{s as a}from"./index-BW8Xbhcb.js";import{B as r,o as p,c as u,v as c}from"./index-D9DriHWl.js";var l=function(n){var t=n.dt;return`
 .p-inputtext {
     font-family: inherit;
     font-feature-settings: inherit;
