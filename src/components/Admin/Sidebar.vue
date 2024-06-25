@@ -27,7 +27,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useAuth } from '../../services/useAuth'
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 
 const { logout } = useAuth()
 

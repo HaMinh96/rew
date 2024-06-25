@@ -8,7 +8,7 @@ export const useTextStore = defineStore('text', () => {
 
     const getContent = () => {
         loading.value = true
-        fetch(`https://haminh96.github.io/rew/textContent.json`)
+        fetch(`https://raw.githubusercontent.com/HaMinh96/rew/main/docs/textContent.json`)
             .then(res => res.json())
             .then(res => {
                 content.value = res
