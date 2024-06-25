@@ -35,7 +35,8 @@ const router = useRouter()
 
 const items = ref([
     { label: 'Bio', icon: 'pi pi-users', route: 'AdminBio' },
-    { label: 'PowerCampus', icon: 'pi pi-bolt', route: 'AdminPowerCampus' }
+    { label: 'PowerCampus', icon: 'pi pi-bolt', route: 'AdminPowerCampus' },
+    { label: 'Home Text', icon: 'pi pi-home', route: 'AdminHomeText' }
 ])
 
 const handleLogout = () => {

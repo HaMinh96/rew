@@ -3,7 +3,7 @@
         class="sub-footer py-4 text-center text-uppercase">
         <div class="container-fluid">
             <button class="rew-main-btn rew-box-shadow" data-bs-toggle="modal" data-bs-target="#contactModal">
-                <span>{{ content?.button_text }}</span>
+                <span>{{ content?.callToAction }}</span>
                 <span class="ms-md-3 ms-1">
                     <svg class="button-arrow" width="34" height="28" viewBox="0 0 34 28" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -81,10 +81,10 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useTextStore } from '../../store/text'
+import { useHomeText } from '../../services/useHomeText'
 
-const store = useTextStore()
-const content = computed(() => store.content?.footer)
+const { textContent } = useHomeText()
+const content = computed(() => textContent.value?.footer)
 
 const currentMode = import.meta.env.MODE
 </script>

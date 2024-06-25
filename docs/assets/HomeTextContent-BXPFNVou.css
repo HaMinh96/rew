@@ -1,0 +1,1 @@
+.content-group{position:relative}.content-group ul{margin-bottom:0}.content-group li{display:flex;flex-direction:column;font-weight:700}.content-group li:first-child{margin-top:.5rem}.content-group li:not(:first-child){margin-top:.5rem}.content-group .actions{bottom:0;right:0;left:0;border-radius:0 0 var(--p-card-border-radius) var(--p-card-border-radius)}

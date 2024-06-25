@@ -67,6 +67,16 @@ export const _ROUTES = [
                 }
             },
             {
+                path: 'text-content',
+                component: () => import('../views/admin/HomeTextContent.vue'),
+                name: 'AdminHomeText',
+                meta: {
+                    layout: 'admin',
+                    title: 'Home Text Management',
+                    requiresAuth: true
+                }
+            },
+            {
                 path: 'login',
                 component: () => import('../views/admin/Login.vue'),
                 name: 'AdminLogin',

@@ -7,8 +7,7 @@
                 questions
             </h2>
             <h4 class="text-center section-sub-title mb-3 mb-md-5">
-                In a quandary of not knowing what you don’t know about Slate? You’re not alone! Here are some of the
-                questions that we help Slate schools answer:
+                {{ content?.subText }}
             </h4>
             <div class="faq-content mx-auto">
                 <div data-aos="fade-down" class="accordion accordion-flush" id="rew-faq">
@@ -26,36 +25,36 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import { useTextStore } from '../../store/text'
+import { useHomeText } from '../../services/useHomeText'
 
-const store = useTextStore()
-const content = computed(() => store.content?.faq)
+const { textContent } = useHomeText()
+const content = computed(() => textContent.value?.faq)
 
 const faqs = ref([
     {
         id: 'faq1',
         btnid: 'faqbtn1',
-        title: content.value?.faq1,
+        title: computed(() => content.value?.block1),
     },
     {
         id: 'faq2',
         btnid: 'faqbtn2',
-        title: content.value?.faq2,
+        title: computed(() => content.value?.block2),
     },
     {
         id: 'faq3',
         btnid: 'faqbtn3',
-        title: content.value?.faq3,
+        title: computed(() => content.value?.block3),
     },
     {
         id: 'faq4',
         btnid: 'faqbtn4',
-        title: content.value?.faq4,
+        title: computed(() => content.value?.block4),
     },
     {
         id: 'faq5',
         btnid: 'faqbtn5',
-        title: content.value?.faq5,
+        title: computed(() => content.value?.block5),
     }
 ]) 
 </script>

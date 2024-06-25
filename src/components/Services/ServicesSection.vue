@@ -38,7 +38,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { register } from 'swiper/element/bundle'
-import { useTextStore } from '../../store/text'
+import { useHomeText } from '../../services/useHomeText'
 
 import role01Url from '@/assets/img/role01.svg'
 import role01MobileUrl from '@/assets/img/role01.webp'
@@ -51,37 +51,38 @@ import role04MobileUrl from '@/assets/img/role04.webp'
 
 register()
 
-const store = useTextStore()
-const content = computed(() => store.content.services)
+const { textContent } = useHomeText()
+
+const content = computed(() => textContent.value?.services)
 
 const slaterRoles = ref([
   {
     imgSrc: role01Url,
     imgSrcMobile: role01MobileUrl,
     subTitle: 'Roles #1',
-    title: content.value?.block1.title,
-    content: content.value?.block1.content
+    title: computed(() => content.value?.block1.title),
+    content: computed(() => content.value?.block1.content)
   },
   {
     imgSrc: role02Url,
     imgSrcMobile: role02MobileUrl,
     subTitle: 'Roles #2',
-    title: content.value?.block2.title,
-    content: content.value?.block2.content
+    title: computed(() => content.value?.block2.title),
+    content: computed(() => content.value?.block2.content)
   },
   {
     imgSrc: role03Url,
     imgSrcMobile: role03MobileUrl,
     subTitle: 'Roles #3',
-    title: content.value?.block3.title,
-    content: content.value?.block3.content
+    title: computed(() => content.value?.block3.title),
+    content: computed(() => content.value?.block3.content)
   },
   {
     imgSrc: role04Url,
     imgSrcMobile: role04MobileUrl,
     subTitle: 'Roles #4',
-    title: content.value?.block4.title,
-    content: content.value?.block4.content
+    title: computed(() => content.value?.block4.title),
+    content: computed(() => content.value?.block4.content)
   },
 ])
 

@@ -18,7 +18,8 @@
         </div>
         <div class="about-content-mobile position-relative mx-auto d-block d-md-none">
             <div class="container-fluid">
-                <div v-for="item in blockItems" data-aos="zoom-in-down" data-aos-offset="50" class="about-block" :class="item.class">
+                <div v-for="item in blockItems" data-aos="zoom-in-down" data-aos-offset="50" class="about-block"
+                    :class="item.class">
                     <div class="about-block-title">{{ item.title }}</div>
                     <div class="about-block-body" v-html="item.content"></div>
                 </div>
@@ -29,10 +30,10 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
-import { useTextStore } from '../../store/text'
+import { useHomeText } from '../../services/useHomeText'
 
-const store = useTextStore()
-const content = computed(() => store.content?.about)
+const { textContent } = useHomeText()
+const content = computed(() => textContent.value?.about)
 
 const calculateNewScale = () => {
     const el = document.querySelector(".about-content")
@@ -47,23 +48,23 @@ window.addEventListener('resize', calculateNewScale)
 const blockItems = ref([
     {
         class: 'block-1 block-w-arrow',
-        title: content.value?.block1.title,
-        content: content.value?.block1.content
+        title: computed(() => content.value?.block1.title),
+        content: computed(() => content.value?.block1.content)
     },
     {
         class: 'block-2 block-w-arrow',
-        title: content.value?.block2.title,
-        content: content.value?.block2.content
+        title: computed(() => content.value?.block2.title),
+        content: computed(() => content.value?.block2.content)
     },
     {
         class: 'block-3 block-w-arrow',
-        title: content.value?.block3.title,
-        content: content.value?.block3.content
+        title: computed(() => content.value?.block3.title),
+        content: computed(() => content.value?.block3.content)
     },
     {
         class: 'block-4',
-        title: content.value?.block4.title,
-        content: content.value?.block4.content
+        title: computed(() => content.value?.block4.title),
+        content: computed(() => content.value?.block4.content)
     }
 ])
 

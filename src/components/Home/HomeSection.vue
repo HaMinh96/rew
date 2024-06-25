@@ -16,7 +16,7 @@
                             </h1>
                             <button class="rew-main-btn rew-box-shadow position-absolute position-sm-relative"
                                 style="bottom: 0; right: -12px" data-bs-toggle="modal" data-bs-target="#contactModal">
-                                <span>{{ content?.button_text }}</span>
+                                <span>{{ content?.callToAction }}</span>
                                 <span class="ms-md-3 ms-1">
                                     <svg class="button-arrow" width="34" height="28" viewBox="0 0 34 28" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -33,14 +33,15 @@
                                 <img src="/src/assets/img/hero-img-sm.webp" alt="rew small mainboard" class="img-fluid">
                             </span>
                             <span class="rew-text-brown fs-24 fs-sm-10 ms-lg-4 ms-0 fw-light">
-                                {{ content?.sub_text }}
+                                {{ content?.subText }}
                             </span>
                         </div>
                         <div data-aos="fade-right" data-aos-duration="700" data-aos-delay="400" data-aos-offset="-500"
                             class="left-home-block my-auto">
                             <div class="row">
                                 <div class="col-lg-6 col-12">
-                                    <a target="_blank" href="https://technolutions.com/community/slate-preferred-partners"
+                                    <a target="_blank"
+                                        href="https://technolutions.com/community/slate-preferred-partners"
                                         class="clickable d-flex align-items-center h-100">
                                         <span class="d-flex align-items-center justify-content-center max-width-sm">
                                             <img src="/src/assets/img/slate-logo.webp" alt="slate"
@@ -60,12 +61,14 @@
                                     <a target="_blank" :href="RESOURCE_LINK"
                                         class="clickable d-flex align-items-center h-100">
                                         <span class="d-flex align-items-center justify-content-center max-width-sm">
-                                            <img src="/src/assets/img/brainstorm.svg" alt="brainstorm" class="ps-0 ps-lg-2">
+                                            <img src="/src/assets/img/brainstorm.svg" alt="brainstorm"
+                                                class="ps-0 ps-lg-2">
                                         </span>
                                         <span
                                             class="ms-1 ms-md-3 fs-36 fs-sm-10 fs-md-26 fw-700 text-capitalize rew-text-brown">
                                             <span style="white-space: nowrap;">
-                                                <span class="rew-text-green ms-sm-n2 rew-font" style="margin-right: -7px">
+                                                <span class="rew-text-green ms-sm-n2 rew-font"
+                                                    style="margin-right: -7px">
                                                     Re
                                                 </span>
                                                 <span style="text-transform: none !important;">
@@ -93,11 +96,11 @@
 <script setup>
 import { computed } from 'vue'
 import { RESOURCE_LINK } from '../../constants'
-import { useTextStore } from '../../store/text'
+import { useHomeText } from '../../services/useHomeText'
 
-const store = useTextStore()
+const { textContent } = useHomeText()
 
-const content = computed(() => store.content?.home)
+const content = computed(() => textContent.value?.home)
 </script>
 
 <style scoped>
