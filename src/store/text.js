@@ -6,10 +6,9 @@ export const useTextStore = defineStore('text', () => {
 
     const content = ref()
 
-    
     const getContent = () => {
         loading.value = true
-        fetch(`${import.meta.env.MODE === 'staging' ? 'rew' : ''}/textContent.json`)
+        fetch(`./textContent.json`)
             .then(res => res.json())
             .then(res => {
                 content.value = res
