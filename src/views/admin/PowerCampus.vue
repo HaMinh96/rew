@@ -1,10 +1,12 @@
 <template>
     <div class="m-2 px-3 px-sm-0 editor" style="min-height: 90%">
-        <Editor v-model="content" ref="editorRef" editorStyle="height: calc(100vh - 110px)" />
-        <div class="d-flex justify-content-end gap-2 mt-2">
-            <Button label="Cancel" severity="secondary" @click="confirmCancel" />
-            <Button label="Save" @click="confirmSave" :loading />
-        </div>
+        <template v-if="!store.loading">
+            <Editor v-model="content" ref="editorRef" editorStyle="height: calc(100vh - 110px)" />
+            <div class="d-flex justify-content-end gap-2 mt-2">
+                <Button label="Cancel" severity="secondary" @click="confirmCancel" />
+                <Button label="Save" @click="confirmSave" :loading />
+            </div>
+        </template>
         <Transition>
             <div v-show="store.loading"
                 class="position-absolute align-items-center justify-content-center top-50 start-50 translate-middle"
